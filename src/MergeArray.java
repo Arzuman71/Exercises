@@ -8,12 +8,21 @@ public class MergeArray {
         int[] mergeArray = new int[array.length + array2.length];
         int mergeArraySize = 0;
 
+        int arraySize;
 
-        for (int i = 0; i < array.length; i++) {
-            mergeArray[mergeArraySize++] = array[i];
+        if (array.length > array2.length) {
+            arraySize = array.length;
+        } else {
+            arraySize = array2.length;
         }
-        for (int i = 0; i < array2.length; i++) {
-            mergeArray[mergeArraySize++] = array2[i];
+
+        for (int i = 0; i < arraySize; i++) {
+            if (array.length > i) {
+                mergeArray[mergeArraySize++] = array[i];
+            }
+            if (array2.length > i) {
+                mergeArray[mergeArraySize++] = array2[i];
+            }
         }
         System.out.println(Arrays.toString(mergeArray));
     }
